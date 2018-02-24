@@ -1,0 +1,104 @@
+<HTML>
+<HEAD>
+    <SCRIPT LANGUAGE="JavaScript" src="script/editor.js">
+    </SCRIPT>
+    <style type="text/css">
+        .miniwindow {
+            display: none;
+            position: absolute;
+            top: 40px;
+            left: 10px;
+            width: 1140px;
+            height: 300px;
+            overflow: auto;
+            font-size: 8pt;
+            border: 10px solid lightsteelblue;
+            background-color: beige;
+        }
+
+        textarea {
+            font-size: 8pt;
+        }
+
+        @import url(https://fonts.googleapis.com/css?family=Roboto);
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+
+            background-color: #269;
+            background-image: linear-gradient(white 2px, transparent 2px),
+            linear-gradient(90deg, white 2px, transparent 2px),
+            linear-gradient(rgba(255, 255, 255, .3) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, .3) 1px, transparent 1px);
+            background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+            background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px
+        }
+    </style>
+</HEAD>
+
+
+<BODY onload="constructTable(16)" ondragstart="return false" draggable="false"
+      ondragenter="event.dataTransfer.dropEffect='none'; event.stopPropagation(); event.preventDefault();"
+      ondragover="event.dataTransfer.dropEffect='none';event.stopPropagation(); event.preventDefault();"
+      ondrop="event.dataTransfer.dropEffect='none';event.stopPropagation(); event.preventDefault();">
+
+<DIV id="screen" style="position:absolute;left:10px;top:10px;background-color: black; border-radius: 6px; padding: 32px 50px; ">
+</div>
+
+<div id="toolbar" style="position:absolute;top:5px;left:755px;background-color: beige;padding: 10px; border-radius: 6px; ">
+    <input type="button" value="Fcb Data" onclick="constructFcb()">
+    <input type="button" value="Basic Data" onclick="constructData()">
+
+    <select id="cls" name="cls" onchange="clearScreen(this.value)">
+        <option value="0">Clear screen</option>
+        <option value="80">cls 0</option>
+        <option value="8f">cls 1</option>
+        <option value="9f">cls 2</option>
+        <option value="af">cls 3</option>
+        <option value="bf">cls 4</option>
+        <option value="cf">cls 5</option>
+        <option value="df">cls 6</option>
+        <option value="ef">cls 7</option>
+        <option value="ff">cls 8</option>
+    </select>
+    <button onclick="toggleGrid()">Toggle Grid</button>
+</div>
+
+<div id="charpallette" style="position:absolute; top:60px;left:755px;background-color: beige;padding: 10px; border-radius: 6px; ">
+    <DIV id="sgsel" style="display:inline-block;top:20px">
+    </div>
+    <DIV id="charsel" style="display:inline-block;top:20px;padding-left: 20px">
+    </div>
+</div>
+
+<DIV id="fcbdata" class="miniwindow">
+    <table border=0 cellspacing=0 cellpadding=0>
+        <tr>
+            <td bgcolor="#5D8DDA" align=right><img style="cursor:pointer;" title="Close fcb window..."
+                                                   src="grafix/close.jpg" border=0 height=16 onclick="hidefcb()"></td>
+        </tr>
+        <tr>
+            <td><textarea cols="160" rows=20 id="fcbs">&nbsp;</textarea></td>
+        </tr>
+    </table>
+</DIV>
+
+<DIV id="basicdata" class="miniwindow">
+    <table border=0 cellspacing=0 cellpadding=0>
+        <tr>
+            <td bgcolor="#5D8DDA" align=right><img style="cursor:pointer;" title="Close data window..."
+                                                   src="grafix/close.jpg" border=0 height=16 onclick="hidedata()"></td>
+        </tr>
+        <tr>
+            <td><textarea cols="160" rows=20 id="data">&nbsp;</textarea></td>
+        </tr>
+    </table>
+</DIV>
+
+
+</BODY>
+</HTML>
