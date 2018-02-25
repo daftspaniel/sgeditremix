@@ -12,7 +12,6 @@ var mouseDown = true
 
 function dropImage(id) {
     if (currentchar !== -1 && mouseDown) {
-        //console.log('DI mouseDown',mouseDown)
         window.requestAnimationFrame(function () {
             document.getElementById(id).innerHTML = "<IMG src='grafix/" + currentchar + ".jpg' border=0 width=20 height=30>"
         });
@@ -22,8 +21,7 @@ function dropImage(id) {
 function setChar(charval) {
     currentchar = charval
     path = 'grafix/' + charval + '.jpg'
-    //document.body.style.cursor = "url(" + path + "), auto";
-
+    document.getElementById('preview').src = path;
 }
 
 function HiLight(id) {
@@ -42,17 +40,14 @@ function constructTable(YRes) {
     for (var j = 0; j < YRes; j++) {
         myHTML += "<TR>"
         for (var i = 0; i < 32; i++) {
-            coors = "(" + i + "," + j + ") [" + (i + j * 32) + "] " + ((i + j * 32) + 1024)
-            myHTML += "<TD name='screencell' "//ondragover='dropImage(this.id)'"
-            myHTML += "height=30 width=20 "// onclick='dropImage(this.id)'"
+            coors = "(" + i + "," + j + ")  [" + (i + j * 32) + "]  " + ((i + j * 32) + 1024)
+            myHTML += "<TD name='screencell' "
+            myHTML += "height=30 width=20 "
             myHTML += "id='pixel_" + counter + "' "
-            myHTML += "onmouseenter='console.log(34);dropImage(this.id);event.preventDefault();' "
-            myHTML += "onmousedown='console.log(99);mouseDown=true;dropImage(this.id);console.log(1,mouseDown)' "
-            //
-            //
-            myHTML += "onmouseup='console.log(123);mouseDown=false;' "
-            //myHTML += "onmouseup='console.log(44);mouseDown=false;' "
-            //"onmouseover='HiLight(" + counter + ")' onmouseout='LoLight(" + counter + ")'"
+            myHTML += "onmouseenter='dropImage(this.id);event.preventDefault();' "
+            myHTML += "onmousedown='mouseDown=true;dropImage(this.id);' "
+            myHTML += "onmouseup='mouseDown=false;' "
+
             myHTML += "width='20' style='border:none;' align='center' title='" + coors + "'>" + "&nbsp;" + "</TD>"
             counter++
         }
@@ -68,6 +63,7 @@ function constructTable(YRes) {
         dropImage('pixel_' + i)
     }
     mouseDown = false
+    setChar(currentchar)
 }
 
 
@@ -186,9 +182,10 @@ function clearScreen(color) {
     }
 }
 
-function showGrid(characterPalette) {
+function showGrid(characterPalette, toolbar) {
     var cell
     characterPalette.style.left = '855px'
+    toolbar.style.left = '855px'
 
     screenTable.width = 722
     screenTable.height = 600
@@ -203,7 +200,7 @@ function showGrid(characterPalette) {
     return;
 }
 
-function hideGrid(characterPalette) {
+function hideGrid(characterPalette, toolbar) {
     var cell
     for (var i = 0; i < screensize; i++) {
         cell = document.getElementById("pixel_" + i)
@@ -217,6 +214,7 @@ function hideGrid(characterPalette) {
     screenTable.cellPadding = 0
     screenTable.cellSpacing = 0
     characterPalette.style.left = '755px'
+    toolbar.style.left = '755px'
 }
 
 function toggleGrid() {
@@ -224,14 +222,15 @@ function toggleGrid() {
     screenTable = document.getElementById('screen-table');
 
     var characterPalette = document.getElementById('charpallette');
+    var toolbar = document.getElementById('toolbar');
+
     if (grid) {
-        showGrid(characterPalette);
+        showGrid(characterPalette, toolbar);
         return
     }
-    hideGrid(characterPalette);
+    hideGrid(characterPalette, toolbar);
 }
 
 document.onmouseup = function () {
-    console.log('hmm', mouseDown)
     mouseDown = false;
 }

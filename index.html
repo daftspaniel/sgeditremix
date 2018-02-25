@@ -50,22 +50,25 @@
 </div>
 
 <div id="toolbar" style="position:absolute;top:5px;left:755px;background-color: beige;padding: 10px; border-radius: 6px; ">
+
+    <img id="preview" style="width: 20px;height: 30px" align="middle"/>
+
     <input type="button" value="Fcb Data" onclick="constructFcb()">
     <input type="button" value="Basic Data" onclick="constructData()">
 
     <select id="cls" name="cls" onchange="clearScreen(this.value)">
-        <option value="0">Clear screen</option>
-        <option value="80">cls 0</option>
-        <option value="8f">cls 1</option>
-        <option value="9f">cls 2</option>
-        <option value="af">cls 3</option>
-        <option value="bf">cls 4</option>
-        <option value="cf">cls 5</option>
-        <option value="df">cls 6</option>
-        <option value="ef">cls 7</option>
-        <option value="ff">cls 8</option>
+        <option value="0">Clear</option>
+        <option value="80" style="background-color:black;color:white">CLS 0</option>
+        <option value="8f" style="background-color:#09ff08;color:white">CLS 1</option>
+        <option value="9f" style="background-color:#fdff41;color:white">CLS 2</option>
+        <option value="af" style="background-color:#2110b6;color:white">CLS 3</option>
+        <option value="bf" style="background-color:#b50421;color:white">CLS 4</option>
+        <option value="cf" style="background-color:#ffffff;color:black">CLS 5</option>
+        <option value="df" style="background-color:#09d773;color:white">CLS 6</option>
+        <option value="ef" style="background-color:#ff1cff;color:white">CLS 7</option>
+        <option value="ff" style="background-color:#ff4107;color:white">CLS 8</option>
     </select>
-    <button onclick="toggleGrid()">Toggle Grid</button>
+    <button onclick="toggleGrid()">Grid</button>
 </div>
 
 <div id="charpallette" style="position:absolute; top:60px;left:755px;background-color: beige;padding: 10px; border-radius: 6px; ">
