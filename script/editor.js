@@ -6,7 +6,7 @@
 // Updates By Davy Mitchell 2018
 //********************************************
 const screensize = 512;
-var currentchar = 60;
+var currentchar = '60';
 var grid = false;
 var mouseDown = true;
 
@@ -60,12 +60,19 @@ function constructTable(YRes) {
     document.getElementById("screen").innerHTML = screen;
     constructColours();
     constructCharset();
+
+    mouseDown = true;
     currentchar = '60';
-    for (var i = 0; i < screensize; i++) {
-        dropImage('pixel_' + i)
+    for (i = 0; i < screensize; i++) {
+        //dropImage('pixel_' + i)
+        document.getElementById('pixel_' + i).innerHTML = "<IMG src='grafix/" + currentchar + ".jpg' border=0 width=20 height=30 draggable='false'>"
     }
+
+    currentchar = '80';
+    path = 'grafix/' + currentchar + '.jpg';
+    document.getElementById('preview').src = path;
+
     mouseDown = false;
-    setChar(currentchar)
 }
 
 
