@@ -13,7 +13,7 @@ var mouseDown = true;
 function dropImage(id) {
     if (currentchar !== -1 && mouseDown) {
         window.requestAnimationFrame(function () {
-            document.getElementById(id).innerHTML = "<IMG src='grafix/" + currentchar + ".jpg' border=0 width=20 height=30>"
+            document.getElementById(id).innerHTML = "<IMG src='grafix/" + currentchar + ".jpg' border=0 width=20 height=30 draggable='false'>"
         });
     }
 }
@@ -25,17 +25,19 @@ function setChar(charval) {
 }
 
 function HiLight(id) {
-    document.getElementById("pixel_" + id).style.backgroundColor = "#cccccc"
+    //document.getElementById("pixel_" + id).style.border = "1px sold black"
+    //document.getElementById("pixel_" + id).parentNode.style.border = "10px solid black"
+    //document.getElementById("pixel_" + id).innerHTML.firstChild.innerHTML = "<div style='width: 20px;height:30px'><b>!</b></div>"
 }
 
 function LoLight(id) {
-    document.getElementById("pixel_" + id).style.backgroundColor = "#80ff80"
+    //document.getElementById("pixel_" + id).style.backgroundColor = "#80ff80"
 }
 
 
 function constructTable(YRes) {
     var counter = 0;
-    var screen = '<TABLE id="screen-table" width=640 height=480  draggable="false" cellpadding=0 cellspacing=0 onmouseleave="console.log(1066);mouseDown=false">';
+    var screen = '<TABLE id="screen-table" width=640 height=480  draggable="false" cellpadding=0 cellspacing=0 onmouseleave="mouseDown=false">';
     var coors;
     for (var j = 0; j < YRes; j++) {
         screen += "<TR>";
@@ -44,8 +46,8 @@ function constructTable(YRes) {
             screen += "<TD name='screencell' ";
             screen += "height=30 width=20 ";
             screen += "id='pixel_" + counter + "' ";
-            screen += "onmouseenter='dropImage(this.id);event.preventDefault();' ";
-            screen += "onmousedown='mouseDown=true;dropImage(this.id);' ";
+            screen += "onmouseenter='HiLight(" + i + ");dropImage(this.id);event.preventDefault();' ";
+            screen += "onmousedown='LoLight(" + i + ");mouseDown=true;dropImage(this.id);' ";
             screen += "onmouseup='mouseDown=false;' ";
 
             screen += "width='20' style='border:none;' align='center' title='" + coors + "'>" + "&nbsp;" + "</TD>";
