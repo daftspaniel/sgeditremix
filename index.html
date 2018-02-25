@@ -5,10 +5,7 @@
 </HEAD>
 
 
-<BODY onload="constructTable(16)" ondragstart="return false" draggable="false" onmousedown="return false"
-      ondragenter="event.dataTransfer.dropEffect='none'; event.stopPropagation(); event.preventDefault();"
-      ondragover="event.dataTransfer.dropEffect='none';event.stopPropagation(); event.preventDefault();"
-      ondrop="event.dataTransfer.dropEffect='none';event.stopPropagation(); event.preventDefault();">
+<BODY onload="constructTable(16)">
 
 <DIV id="screen"
      style="position:absolute;left:10px;top:10px;background-color: black; border-radius: 6px; padding: 32px 50px; "
@@ -23,7 +20,7 @@
 <div id="toolbar"
      style="position:absolute;top:5px;left:755px;background-color: beige;padding: 5px; border-radius: 6px;">
 
-    <div style="padding: 2px;display: inline-block"><img id="preview"
+    <div style="padding: 2px;display: inline-block;"><img id="preview"
                                                          style="border:1px solid grey;width: 20px;height: 30px"
                                                          align="middle"/></div>
 
