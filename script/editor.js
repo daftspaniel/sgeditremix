@@ -35,27 +35,27 @@ function LoLight(id) {
 
 function constructTable(YRes) {
     var counter = 0
-    var myHTML = '<TABLE id="screen-table" width=640 height=480 cellpadding=0 cellspacing=0 onmouseleave="console.log(1066);mouseDown=false">'
+    var screen = '<TABLE id="screen-table" width=640 height=480 cellpadding=0 cellspacing=0 onmouseleave="console.log(1066);mouseDown=false">'
     var coors
     for (var j = 0; j < YRes; j++) {
-        myHTML += "<TR>"
+        screen += "<TR>"
         for (var i = 0; i < 32; i++) {
             coors = "(" + i + "," + j + ")  [" + (i + j * 32) + "]  " + ((i + j * 32) + 1024)
-            myHTML += "<TD name='screencell' "
-            myHTML += "height=30 width=20 "
-            myHTML += "id='pixel_" + counter + "' "
-            myHTML += "onmouseenter='dropImage(this.id);event.preventDefault();' "
-            myHTML += "onmousedown='mouseDown=true;dropImage(this.id);' "
-            myHTML += "onmouseup='mouseDown=false;' "
+            screen += "<TD name='screencell' "
+            screen += "height=30 width=20 "
+            screen += "id='pixel_" + counter + "' "
+            screen += "onmouseenter='dropImage(this.id);event.preventDefault();' "
+            screen += "onmousedown='mouseDown=true;dropImage(this.id);' "
+            screen += "onmouseup='mouseDown=false;' "
 
-            myHTML += "width='20' style='border:none;' align='center' title='" + coors + "'>" + "&nbsp;" + "</TD>"
+            screen += "width='20' style='border:none;' align='center' title='" + coors + "'>" + "&nbsp;" + "</TD>"
             counter++
         }
-        myHTML += "</TR>"
+        screen += "</TR>"
     }
-    myHTML += "</TABLE>"
+    screen += "</TABLE>"
 
-    document.getElementById("screen").innerHTML = myHTML
+    document.getElementById("screen").innerHTML = screen
     constructColours()
     constructCharset()
     currentchar = '60'
