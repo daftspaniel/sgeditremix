@@ -3,9 +3,10 @@
     position: absolute;
     top: 40px;
     left: 10px;
-    width: 1140px;
-    height: 300px;
+    width: 1000px;
+    height: 444px;
     overflow: auto;
+    overflow-y: hidden;
     font-size: 8pt;
     border: 10px solid lightsteelblue;
     background-color: beige;

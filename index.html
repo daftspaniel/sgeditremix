@@ -10,12 +10,21 @@
       ondragover="event.dataTransfer.dropEffect='none';event.stopPropagation(); event.preventDefault();"
       ondrop="event.dataTransfer.dropEffect='none';event.stopPropagation(); event.preventDefault();">
 
-<DIV id="screen" style="position:absolute;left:10px;top:10px;background-color: black; border-radius: 6px; padding: 32px 50px; ">
+<DIV id="screen"
+     style="position:absolute;left:10px;top:10px;background-color: black; border-radius: 6px; padding: 32px 50px; "
+     ondragstart="return false" draggable="false"
+     ondragenter="event.dataTransfer.dropEffect='none'; event.stopPropagation(); event.preventDefault();"
+     ondragover="event.dataTransfer.dropEffect='none';event.stopPropagation(); event.preventDefault();"
+     ondrop="event.dataTransfer.dropEffect='none';event.stopPropagation(); event.preventDefault();"
+>
 </div>
 
-<div id="toolbar" style="position:absolute;top:5px;left:755px;background-color: beige;padding: 10px; border-radius: 6px; ">
+<div id="toolbar"
+     style="position:absolute;top:5px;left:755px;background-color: beige;padding: 5px; border-radius: 6px;">
 
-    <img id="preview" style="width: 20px;height: 30px" align="middle"/>
+    <div style="padding: 2px;display: inline-block"><img id="preview"
+                                                         style="border:1px solid grey;width: 20px;height: 30px"
+                                                         align="middle"/></div>
 
     <input type="button" value="Fcb Data" onclick="constructFcb()">
     <input type="button" value="Basic Data" onclick="constructData()">
@@ -35,7 +44,8 @@
     <button onclick="toggleGrid()">Grid</button>
 </div>
 
-<div id="charpallette" style="position:absolute; top:60px;left:755px;background-color: beige;padding: 10px; border-radius: 6px; ">
+<div id="charpallette"
+     style="position:absolute; top:60px;left:755px;background-color: beige;padding: 10px; border-radius: 6px; ">
     <DIV id="sgsel" style="display:inline-block;top:20px">
     </div>
     <DIV id="charsel" style="display:inline-block;top:20px;padding-left: 20px">
@@ -43,27 +53,26 @@
 </div>
 
 <DIV id="fcbdata" class="miniwindow">
-    <table border=0 cellspacing=0 cellpadding=0>
-        <tr>
-            <td bgcolor="#5D8DDA" align=right><img style="cursor:pointer;" title="Close fcb window..."
-                                                   src="grafix/close.jpg" border=0 height=16 onclick="hidefcb()"></td>
-        </tr>
-        <tr>
-            <td><textarea cols="160" rows=20 id="fcbs">&nbsp;</textarea></td>
-        </tr>
-    </table>
+    <div style="text-align: right">
+        <button onclick="hidefcb()">Close</button>&nbsp;&nbsp;
+    </div>    <br/>
+    &nbsp;
+    <textarea cols="160" rows=30 id="fcbs">&nbsp;</textarea>
+    <br/>
+    <br/>
+
+    <br/>
 </DIV>
 
 <DIV id="basicdata" class="miniwindow">
-    <table border=0 cellspacing=0 cellpadding=0>
-        <tr>
-            <td bgcolor="#5D8DDA" align=right><img style="cursor:pointer;" title="Close data window..."
-                                                   src="grafix/close.jpg" border=0 height=16 onclick="hidedata()"></td>
-        </tr>
-        <tr>
-            <td><textarea cols="160" rows=20 id="data">&nbsp;</textarea></td>
-        </tr>
-    </table>
+    <div style="text-align: right">
+        <button onclick="hidedata()">Close</button>&nbsp;&nbsp;
+    </div>    <br/>
+    &nbsp;<textarea cols="160" rows=30 id="data">&nbsp;</textarea>
+    <br/>
+    <br/>
+
+    <br/>
 </DIV>
 
 
