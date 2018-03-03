@@ -9,12 +9,15 @@ const screensize = 512;
 var currentchar = '60';
 var grid = false;
 var mouseDown = true;
+var screenData = {};
 
 function dropImage(id) {
     if (currentchar !== -1 && mouseDown) {
         window.requestAnimationFrame(function () {
             document.getElementById(id).innerHTML = "<IMG src='grafix/" + currentchar + ".jpg' border=0 width=20 height=30 draggable='false'>"
         });
+        screenData[id] = currentchar;
+        localStorage.screenData = JSON.stringify(screenData);
     }
 }
 
@@ -61,16 +64,21 @@ function constructTable(YRes) {
     constructColours();
     constructCharset();
 
-    mouseDown = true;
-    currentchar = '60';
-    for (i = 0; i < screensize; i++) {
-        //dropImage('pixel_' + i)
-        document.getElementById('pixel_' + i).innerHTML = "<IMG src='grafix/" + currentchar + ".jpg' border=0 width=20 height=30 draggable='false'>"
-    }
-
     currentchar = '80';
     path = 'grafix/' + currentchar + '.jpg';
     document.getElementById('preview').src = path;
+
+    if (window.localStorage.screenData) {
+        var storedScreen = JSON.parse(window.localStorage.screenData)
+        screenData = storedScreen
+
+        for (i = 0; i < screensize; i++) {
+            document.getElementById('pixel_' + i).innerHTML = "<IMG src='grafix/" + screenData['pixel_' + i] + ".jpg' border=0 width=20 height=30 draggable='false'>"
+        }
+
+    } else {
+        clearScreen(60);
+    }
 
     mouseDown = false;
 }
@@ -193,8 +201,10 @@ function clearScreen(color) {
     if (color != 0) {
         for (var i = 0; i < screensize; i++) {
             document.getElementById("pixel_" + i).innerHTML = "<IMG src='grafix/" + color + ".jpg' border=0 width=20 height=30>"
+            screenData["pixel_" + i] = color
         }
         document.getElementById("cls").selectedIndex = 0
+        localStorage.screenData = JSON.stringify(screenData)
     }
 }
 
