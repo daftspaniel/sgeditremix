@@ -5,6 +5,7 @@
 //********************************************
 // Updates By Davy Mitchell 2018
 //********************************************
+'use strict';
 
 function dropImage(id) {
     if (currentchar !== -1 && mouseDown) {
@@ -18,7 +19,7 @@ function dropImage(id) {
 
 function setChar(charval) {
     currentchar = charval;
-    path = 'grafix/' + charval + '.jpg';
+    var path = 'grafix/' + charval + '.jpg';
     document.getElementById('preview').src = path;
 }
 
@@ -38,7 +39,7 @@ function clearScreen(color) {
             document.getElementById("pixel_" + i).innerHTML = "<IMG src='grafix/" + color + ".jpg' border=0 width=20 height=30>"
             screenData["pixel_" + i] = color
         }
-        document.getElementById("cls").selectedIndex = 0
+        document.getElementById("cls").selectedIndex = 0;
         localStorage.screenData = JSON.stringify(screenData)
     }
 }

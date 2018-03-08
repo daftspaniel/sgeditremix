@@ -1,3 +1,11 @@
+//********************************************
+// COCO II SG editor by Simon Jonassen 2014/16
+// use and modify as you see fit...
+// just pls remember where it came from
+//********************************************
+// Updates By Davy Mitchell 2018
+//********************************************
+'use strict';
 
 function constructTable(YRes) {
     var counter = 0;
@@ -26,7 +34,7 @@ function constructTable(YRes) {
     constructCharset();
 
     currentchar = '80';
-    path = 'grafix/' + currentchar + '.jpg';
+    var path = 'grafix/' + currentchar + '.jpg';
     document.getElementById('preview').src = path;
 
     if (window.localStorage.screenData) {

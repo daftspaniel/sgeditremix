@@ -1,13 +1,22 @@
+//********************************************
+// COCO II SG editor by Simon Jonassen 2014/16
+// use and modify as you see fit...
+// just pls remember where it came from
+//********************************************
+// Updates By Davy Mitchell 2018
+//********************************************
+'use strict';
 
 function constructFcb() {
     const noval = 60;	//hex
-    document.getElementById("fcbs").value = "";
-    document.getElementById("fcbdata").style.display = "block";
+    getById("fcbs").value = "";
+    getById("fcbdata").style.display = "block";
+    var fcbval, charval;
 
     for (var j = 0; j < 16; j++) {
-        fcbline = String.fromCharCode(9) + "fcb" + String.fromCharCode(9);
+        var fcbline = String.fromCharCode(9) + "fcb" + String.fromCharCode(9);
         for (var i = j * 32; i < j * 32 + 32; i++) {
-            temp = document.getElementById("pixel_" + i).innerHTML;
+            var temp = document.getElementById("pixel_" + i).innerHTML;
             if (temp === "&nbsp;") {
                 fcbval = noval
             }
@@ -19,7 +28,7 @@ function constructFcb() {
             fcbline += "$" + fcbval + ","
         }
         fcbline = fcbline.substr(0, fcbline.length - 1) + String.fromCharCode(13);
-        document.getElementById("fcbs").value += fcbline
+        getById("fcbs").value += fcbline
 
     }
 }
@@ -27,17 +36,19 @@ function constructFcb() {
 
 function constructData() {
     const noval = 60;	//hex
-    var fullcode = '10 CLEAR2000:DIMT,A:CLS\r\n'
-    fullcode += '20 FORT=1024TO1535:READA:POKET,A:NEXT\r\n'
-    fullcode += '100 A$=INKEY$:IFA$="" THEN100\r\n'
+    var fullcode = '10 CLEAR2000:DIMT,A:CLS\r\n';
+    fullcode += '20 FORT=1024TO1535:READA:POKET,A:NEXT\r\n';
+    fullcode += '100 A$=INKEY$:IFA$="" THEN100\r\n';
 
-    document.getElementById("data").value = "";
-    document.getElementById("basicdata").style.display = "block";
+    getById("data").value = "";
+    getById("basicdata").style.display = "block";
     var lineNo = 1000;
+    var dataval, charval;
+
     for (var j = 0; j < 16; j++) {
-        dataline = "DATA" + String.fromCharCode(32);
+        var dataline = "DATA" + String.fromCharCode(32);
         for (var i = j * 32; i < j * 32 + 32; i++) {
-            temp = document.getElementById("pixel_" + i).innerHTML;
+            var temp = getById("pixel_" + i).innerHTML;
             if (temp === "&nbsp;") {
                 dataval = noval
             }
@@ -52,9 +63,9 @@ function constructData() {
         }
         dataline = lineNo + ' ' + dataline.substr(0, dataline.length - 1) + String.fromCharCode(13);
 
-        fullcode += dataline
-        lineNo += 10
+        fullcode += dataline;
+        lineNo += 10;
     }
     var progend = "\r\n";
-    document.getElementById("data").value = fullcode + progend
+    getById("data").value = fullcode + progend
 }

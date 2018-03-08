@@ -1,3 +1,12 @@
+//********************************************
+// COCO II SG editor by Simon Jonassen 2014/16
+// use and modify as you see fit...
+// just pls remember where it came from
+//********************************************
+// Updates By Davy Mitchell 2018
+//********************************************
+'use strict';
+
 var grid = false;
 
 function showGrid(characterPalette, toolbar) {
@@ -37,10 +46,6 @@ function hideGrid(characterPalette, toolbar) {
 
 function toggleGrid() {
     grid = !grid;
-    screenTable = document.getElementById('screen-table');
-
-    var characterPalette = document.getElementById('charpallette');
-    var toolbar = document.getElementById('toolbar');
 
     if (grid) {
         showGrid(characterPalette, toolbar);

@@ -1,12 +1,16 @@
-// function hidefcb() {
-//     document.getElementById("fcbdata").style.display = "none"
-// }
-//
-//
-// function hidedata() {
-//     document.getElementById("basicdata").style.display = "none"
-// }
+//********************************************
+// COCO II SG editor by Simon Jonassen 2014/16
+// use and modify as you see fit...
+// just pls remember where it came from
+//********************************************
+// Updates By Davy Mitchell 2018
+//********************************************
+'use strict';
+
+function getById(id) {
+    return document.getElementById(id);
+}
 
 function hide(id) {
-    document.getElementById(id).style.display = "none";
+    getById(id).style.display = 'none';
 }
