@@ -33,3 +33,17 @@ html, body {
     background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
     background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px
 }
+
+.screen {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    background-color: black;
+    border-radius: 6px;
+    padding: 32px 50px;
+}
+
+#screen-table{
+    background-color: darkgrey;
+    border-color: darkgray;
+}

@@ -1,5 +1,10 @@
 <HTML>
 <HEAD>
+    <SCRIPT LANGUAGE="JavaScript" src="script/toplevel.js"></SCRIPT>
+    <SCRIPT LANGUAGE="JavaScript" src="script/util.js"></SCRIPT>
+    <SCRIPT LANGUAGE="JavaScript" src="script/codegen.js"></SCRIPT>
+    <SCRIPT LANGUAGE="JavaScript" src="script/grid.js"></SCRIPT>
+    <SCRIPT LANGUAGE="JavaScript" src="script/screenandpalettes.js"></SCRIPT>
     <SCRIPT LANGUAGE="JavaScript" src="script/editor.js"></SCRIPT>
     <link href="interface.css" rel="stylesheet" type="text/css"/>
 </HEAD>
@@ -8,21 +13,21 @@
 <BODY onload="constructTable(16)">
 
 <DIV id="screen"
-     style="position:absolute;left:10px;top:10px;background-color: black; border-radius: 6px; padding: 32px 50px; "
      onmousedown="return false"
      ondragstart="return false" draggable="false"
      ondragenter="event.dataTransfer.dropEffect='none'; event.stopPropagation(); event.preventDefault();"
      ondragover="event.dataTransfer.dropEffect='none';event.stopPropagation(); event.preventDefault();"
      ondrop="event.dataTransfer.dropEffect='none';event.stopPropagation(); event.preventDefault();"
->
+     class="screen">
 </div>
 
 <div id="toolbar"
      style="position:absolute;top:5px;left:755px;background-color: beige;padding: 5px; border-radius: 6px;">
 
-    <div style="padding: 2px;display: inline-block;"><img id="preview"
-                                                         style="border:1px solid grey;width: 20px;height: 30px"
-                                                         align="middle"/></div>
+    <div style="padding: 2px;display: inline-block;">
+        <img id="preview" src="grafix/60.jpg"
+             style="border:1px solid grey;width: 20px;height: 30px"
+             align="middle"/></div>
 
     <input type="button" value="Fcb Data" onclick="constructFcb()">
     <input type="button" value="Basic Data" onclick="constructData()">
@@ -53,8 +58,9 @@
 <DIV id="fcbdata" class="miniwindow">
 
     <div style="text-align: right;margin-top: 5px">
-        <button onclick="hidefcb()">Close</button>&nbsp;&nbsp;
-    </div>    <br/>
+        <button onclick="hide('fcbdata')">Close</button>&nbsp;&nbsp;
+    </div>
+    <br/>
     &nbsp;
     <textarea cols="160" rows=30 id="fcbs">&nbsp;</textarea>
     <br/>
@@ -64,8 +70,9 @@
 
 <DIV id="basicdata" class="miniwindow">
     <div style="text-align: right;margin-top: 5px">
-        <button onclick="hidedata()">Close</button>&nbsp;&nbsp;
-    </div>    <br/>
+        <button onclick="hide('basicdata')">Close</button>&nbsp;&nbsp;
+    </div>
+    <br/>
     &nbsp;<textarea cols="160" rows=30 id="data">&nbsp;</textarea>
     <br/>
     <br/>
