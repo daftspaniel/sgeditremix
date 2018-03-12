@@ -7,6 +7,12 @@
 //********************************************
 'use strict';
 
+
+function downloadAssembly() {
+    var sourceCode = getById("fcbs").value;
+    downloadFile('screen.asm', sourceCode);
+}
+
 function constructFcb() {
     const noval = 60;	//hex
     getById("fcbs").value = "";
@@ -33,6 +39,10 @@ function constructFcb() {
     }
 }
 
+function downloadBasic() {
+    var sourceCode = getById("data").value;
+    downloadFile('screen.bas', sourceCode);
+}
 
 function constructData() {
     const noval = 60;	//hex

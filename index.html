@@ -1,5 +1,5 @@
 <HTML>
-<HEAD>
+<head>
     <SCRIPT LANGUAGE="JavaScript" src="script/util.js"></SCRIPT>
     <SCRIPT LANGUAGE="JavaScript" src="script/toplevel.js"></SCRIPT>
     <SCRIPT LANGUAGE="JavaScript" src="script/codegen.js"></SCRIPT>
@@ -14,12 +14,12 @@
     <!--//********************************************-->
     <!--// Updates By Davy Mitchell 2018-->
     <!--//********************************************-->
-</HEAD>
+</head>
 
 
-<BODY onload="init()">
+<body onload="init()">
 
-<DIV id="screen"
+<div id="screen"
      onmousedown="return false"
      ondragstart="return false" draggable="false"
      ondragenter="event.dataTransfer.dropEffect='none'; event.stopPropagation(); event.preventDefault();"
@@ -65,6 +65,7 @@
 <DIV id="fcbdata" class="miniwindow">
 
     <div style="text-align: right;margin-top: 5px">
+        <button onclick="downloadAssembly()">Download</button>&nbsp;
         <button onclick="hide('fcbdata')">Close</button>&nbsp;&nbsp;
     </div>
     <br/>
@@ -77,6 +78,7 @@
 
 <DIV id="basicdata" class="miniwindow">
     <div style="text-align: right;margin-top: 5px">
+        <button onclick="downloadBasic()">Download</button>&nbsp;&nbsp;
         <button onclick="hide('basicdata')">Close</button>&nbsp;&nbsp;
     </div>
     <br/>
@@ -88,5 +90,5 @@
 </DIV>
 
 
-</BODY>
+</body>
 </HTML>

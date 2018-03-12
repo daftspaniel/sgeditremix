@@ -29,19 +29,19 @@ function constructTable(YRes) {
     }
     screen += "</TABLE>";
 
-    document.getElementById("screen").innerHTML = screen;
+    getById("screen").innerHTML = screen;
     constructColours();
     constructCharset();
 
     currentchar = '80';
     var path = 'grafix/' + currentchar + '.jpg';
-    document.getElementById('preview').src = path;
+    getById('preview').src = path;
 
     if (window.localStorage.screenData) {
         screenData = JSON.parse(window.localStorage.screenData);
 
         for (i = 0; i < screensize; i++) {
-            document.getElementById('pixel_' + i).innerHTML = "<IMG src='grafix/" + screenData['pixel_' + i] + ".jpg' border=0 width=20 height=30 draggable='false'>"
+            getById('pixel_' + i).innerHTML = "<IMG src='grafix/" + screenData['pixel_' + i] + ".jpg' border=0 width=20 height=30 draggable='false'>"
         }
 
     } else {
@@ -69,7 +69,7 @@ function constructColours() {
     }
     myHTML += "</TABLE>";
 
-    document.getElementById("sgsel").innerHTML = myHTML
+    getById("sgsel").innerHTML = myHTML
 
 }
 
@@ -91,6 +91,5 @@ function constructCharset() {
     }
     myHTML += "</TABLE>";
 
-    document.getElementById("charsel").innerHTML = myHTML
-
+    getById("charsel").innerHTML = myHTML;
 }

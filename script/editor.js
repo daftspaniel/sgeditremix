@@ -10,7 +10,7 @@
 function dropImage(id) {
     if (currentchar !== -1 && mouseDown) {
         window.requestAnimationFrame(function () {
-            document.getElementById(id).innerHTML = "<IMG src='grafix/" + currentchar + ".jpg' border=0 width=20 height=30 draggable='false'>"
+            getById(id).innerHTML = "<IMG src='grafix/" + currentchar + ".jpg' border=0 width=20 height=30 draggable='false'>"
         });
         screenData[id] = currentchar;
         localStorage.screenData = JSON.stringify(screenData);
@@ -20,7 +20,7 @@ function dropImage(id) {
 function setChar(charval) {
     currentchar = charval;
     var path = 'grafix/' + charval + '.jpg';
-    document.getElementById('preview').src = path;
+    getById('preview').src = path;
 }
 
 function HiLight(id) {
@@ -36,11 +36,11 @@ function LoLight(id) {
 function clearScreen(color) {
     if (color !== 0) {
         for (var i = 0; i < screensize; i++) {
-            document.getElementById("pixel_" + i).innerHTML = "<IMG src='grafix/" + color + ".jpg' border=0 width=20 height=30>"
-            screenData["pixel_" + i] = color
+            getById("pixel_" + i).innerHTML = "<IMG src='grafix/" + color + ".jpg' border=0 width=20 height=30>";
+            screenData["pixel_" + i] = color;
         }
-        document.getElementById("cls").selectedIndex = 0;
-        localStorage.screenData = JSON.stringify(screenData)
+        getById("cls").selectedIndex = 0;
+        localStorage.screenData = JSON.stringify(screenData);
     }
 }
 
