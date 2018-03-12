@@ -11,13 +11,17 @@ function getById(id) {
     return document.getElementById(id);
 }
 
-function hide(id) {
-    getById(id).style.display = 'none';
-}
-
 function downloadFile(filename, contents) {
     var downloader = document.createElement('a');
     downloader.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(contents));
     downloader.setAttribute('download', filename);
     downloader.click();
+}
+
+function hideById(id) {
+    getById(id).style.display = 'none';
+}
+
+function showById(id) {
+    getById(id).style.display = 'block';
 }

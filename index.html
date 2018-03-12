@@ -51,6 +51,7 @@
         <option value="ef" style="background-color:#ff1cff;color:white">CLS 7</option>
         <option value="ff" style="background-color:#ff4107;color:white">CLS 8</option>
     </select>
+    <button onclick="showById('about')">About</button>
     <button onclick="toggleGrid()">Grid</button>
 </div>
 
@@ -66,7 +67,7 @@
 
     <div style="text-align: right;margin-top: 5px">
         <button onclick="downloadAssembly()">Download</button>&nbsp;
-        <button onclick="hide('fcbdata')">Close</button>&nbsp;&nbsp;
+        <button onclick="hideById('fcbdata')">Close</button>&nbsp;&nbsp;
     </div>
     <br/>
     &nbsp;
@@ -79,13 +80,23 @@
 <DIV id="basicdata" class="miniwindow">
     <div style="text-align: right;margin-top: 5px">
         <button onclick="downloadBasic()">Download</button>&nbsp;&nbsp;
-        <button onclick="hide('basicdata')">Close</button>&nbsp;&nbsp;
+        <button onclick="hideById('basicdata')">Close</button>&nbsp;&nbsp;
     </div>
     <br/>
     &nbsp;<textarea cols="160" rows=30 id="data">&nbsp;</textarea>
     <br/>
     <br/>
 
+    <br/>
+</DIV>
+
+<DIV id="about" class="aboutwindow">
+    <div style="text-align: right;margin-top: 5px">
+        <button onclick="hideById('about')">Close</button>&nbsp;&nbsp;
+    </div>
+    <p style="font-size: 16px">
+        COCO II SG editor by Simon Jonassen 2014/16
+    </p>
     <br/>
 </DIV>
 
