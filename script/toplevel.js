@@ -9,6 +9,8 @@
 
 const screensize = 512;
 const screenrows = 16;
+
+var grid = false;
 var currentchar = '60';
 
 var mouseDown = true;
@@ -21,7 +23,8 @@ var toolbar;
 
 function init() {
     constructTable(screenrows);
-    screenTable = document.getElementById('screen-table');
-    characterPalette = document.getElementById('charpallette');
-    toolbar = document.getElementById('toolbar');
+    screenTable = getById('screen-table');
+    characterPalette = getById('charpallette');
+    toolbar = getById('toolbar');
+    setupControlsAndScreen();
 }

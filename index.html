@@ -1,4 +1,4 @@
-<HTML>
+<html>
 <head>
     <SCRIPT LANGUAGE="JavaScript" src="script/util.js"></SCRIPT>
     <SCRIPT LANGUAGE="JavaScript" src="script/toplevel.js"></SCRIPT>
@@ -28,42 +28,41 @@
      class="screen">
 </div>
 
-<div id="toolbar"
-     style="position:absolute;top:5px;left:755px;background-color: beige;padding: 5px; border-radius: 6px;">
-
-    <div style="padding: 2px;display: inline-block;">
+<div id="toolbar">
+    <div style="padding: 0px;display: inline-block;">
         <img id="preview" src="grafix/60.jpg"
-             style="border:1px solid grey;width: 20px;height: 30px"
              align="middle"/></div>
-
-    <input type="button" value="Fcb Data" onclick="constructFcb()">
-    <input type="button" value="Basic Data" onclick="constructData()">
-
-    <select id="cls" name="cls" onchange="clearScreen(this.value)">
-        <option value="0">Clear</option>
-        <option value="80" style="background-color:black;color:white">CLS 0</option>
-        <option value="8f" style="background-color:#09ff08;color:white">CLS 1</option>
-        <option value="9f" style="background-color:#fdff41;color:white">CLS 2</option>
-        <option value="af" style="background-color:#2110b6;color:white">CLS 3</option>
-        <option value="bf" style="background-color:#b50421;color:white">CLS 4</option>
-        <option value="cf" style="background-color:#ffffff;color:black">CLS 5</option>
-        <option value="df" style="background-color:#09d773;color:white">CLS 6</option>
-        <option value="ef" style="background-color:#ff1cff;color:white">CLS 7</option>
-        <option value="ff" style="background-color:#ff4107;color:white">CLS 8</option>
-    </select>
-    <button onclick="showById('about')">About</button>
-    <button onclick="toggleGrid()">Grid</button>
+    <div style="margin-left: 50px;display: inline-block">
+        <select id="cls" name="cls" onchange="clearScreen(this.value)">
+            <option value="0">Clear</option>
+            <option value="80" style="background-color:black;color:white">CLS 0</option>
+            <option value="8f" style="background-color:#09ff08;color:white">CLS 1</option>
+            <option value="9f" style="background-color:#fdff41;color:white">CLS 2</option>
+            <option value="af" style="background-color:#2110b6;color:white">CLS 3</option>
+            <option value="bf" style="background-color:#b50421;color:white">CLS 4</option>
+            <option value="cf" style="background-color:#ffffff;color:black">CLS 5</option>
+            <option value="df" style="background-color:#09d773;color:white">CLS 6</option>
+            <option value="ef" style="background-color:#ff1cff;color:white">CLS 7</option>
+            <option value="ff" style="background-color:#ff4107;color:white">CLS 8</option>
+        </select>
+        <button onclick="toggleGrid()">Grid</button>
+    </div>
 </div>
 
-<div id="charpallette"
-     style="position:absolute; top:60px;left:755px;background-color: beige;padding: 10px; border-radius: 6px; ">
+<div id="charpallette">
     <DIV id="sgsel" style="display:inline-block;top:20px">
     </div>
     <DIV id="charsel" style="display:inline-block;top:20px;padding-left: 20px">
     </div>
 </div>
 
-<DIV id="fcbdata" class="miniwindow">
+<div id="toolbarLower">
+    <input type="button" value="Assembly" onclick="constructFcb()">
+    <input type="button" value="Basic" onclick="constructData()">
+    <button onclick="showById('about')">About</button>
+</div>
+
+<div id="fcbdata" class="miniwindow">
 
     <div style="text-align: right;margin-top: 5px">
         <button onclick="downloadAssembly()">Download</button>&nbsp;
@@ -75,9 +74,9 @@
     <br/>
     <br/>
     <br/>
-</DIV>
+</div>
 
-<DIV id="basicdata" class="miniwindow">
+<div id="basicdata" class="miniwindow">
     <div style="text-align: right;margin-top: 5px">
         <button onclick="downloadBasic()">Download</button>&nbsp;&nbsp;
         <button onclick="hideById('basicdata')">Close</button>&nbsp;&nbsp;
@@ -88,18 +87,20 @@
     <br/>
 
     <br/>
-</DIV>
+</div>
 
-<DIV id="about" class="aboutwindow">
+<div id="about" class="aboutwindow">
     <div style="text-align: right;margin-top: 5px">
         <button onclick="hideById('about')">Close</button>&nbsp;&nbsp;
     </div>
     <p style="font-size: 16px">
-        COCO II SG editor by Simon Jonassen 2014/16
+    <h2>COCO II SG editor by Simon Jonassen 2014/16</h2>
+    <h3>Updates By Davy Mitchell 2018</h3>
+    <a style="font-size: large" href="https://github.com/daftspaniel/sgeditremix">GitHub</a>
     </p>
     <br/>
-</DIV>
+</div>
 
 
 </body>
-</HTML>
+</html>

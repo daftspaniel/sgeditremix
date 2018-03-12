@@ -7,12 +7,11 @@
 //********************************************
 'use strict';
 
-var grid = false;
-
 function showGrid(characterPalette, toolbar) {
     var cell;
     characterPalette.style.left = '855px';
     toolbar.style.left = '855px';
+    toolbarLower.style.left = '855px';
 
     screenTable.width = 722;
     screenTable.height = 600;
@@ -41,11 +40,13 @@ function hideGrid(characterPalette, toolbar) {
     screenTable.cellPadding = 0;
     screenTable.cellSpacing = 0;
     characterPalette.style.left = '755px';
-    toolbar.style.left = '755px'
+    toolbar.style.left = '755px';
+    toolbarLower.style.left = '755px';
 }
 
 function toggleGrid() {
     grid = !grid;
+    localStorage.grid = grid;
 
     if (grid) {
         showGrid(characterPalette, toolbar);

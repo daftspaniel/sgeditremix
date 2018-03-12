@@ -7,6 +7,29 @@
 //********************************************
 'use strict';
 
+function setupControlsAndScreen() {
+    if (localStorage.screenData) {
+        screenData = JSON.parse(window.localStorage.screenData);
+
+        for (var i = 0; i < screensize; i++) {
+            getById('pixel_' + i).innerHTML = "<IMG src='grafix/" + screenData['pixel_' + i] + ".jpg' border=0 width=20 height=30 draggable='false'>"
+        }
+
+    } else {
+        clearScreen(60);
+    }
+
+    grid = localStorage.grid === 'true';
+    if (grid) showGrid(characterPalette, toolbar);
+
+    currentchar = localStorage.currentchar ? window.localStorage.currentchar : '80';
+
+    var path = 'grafix/' + currentchar + '.jpg';
+    getById('preview').src = path;
+
+    return i;
+}
+
 function constructTable(YRes) {
     var counter = 0;
     var screen = '<TABLE id="screen-table" width=640 height=480  draggable="false" cellpadding=0 cellspacing=0 onmouseleave="mouseDown=false">';
@@ -32,22 +55,6 @@ function constructTable(YRes) {
     getById("screen").innerHTML = screen;
     constructColours();
     constructCharset();
-
-    currentchar = '80';
-    var path = 'grafix/' + currentchar + '.jpg';
-    getById('preview').src = path;
-
-    if (window.localStorage.screenData) {
-        screenData = JSON.parse(window.localStorage.screenData);
-
-        for (i = 0; i < screensize; i++) {
-            getById('pixel_' + i).innerHTML = "<IMG src='grafix/" + screenData['pixel_' + i] + ".jpg' border=0 width=20 height=30 draggable='false'>"
-        }
-
-    } else {
-        clearScreen(60);
-    }
-
     mouseDown = false;
 }
 

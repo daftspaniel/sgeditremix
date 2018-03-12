@@ -21,6 +21,7 @@ function setChar(charval) {
     currentchar = charval;
     var path = 'grafix/' + charval + '.jpg';
     getById('preview').src = path;
+    localStorage.currentchar = currentchar;
 }
 
 function HiLight(id) {

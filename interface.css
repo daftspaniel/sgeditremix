@@ -1,4 +1,4 @@
-.aboutwindow{
+.aboutwindow {
     display: none;
     position: absolute;
     top: 10px;
@@ -10,6 +10,7 @@
     font-size: 8pt;
     border: 10px solid lightsteelblue;
     background-color: beige;
+    text-align: center;
 }
 
 .miniwindow {
@@ -24,6 +25,11 @@
     font-size: 8pt;
     border: 10px solid lightsteelblue;
     background-color: beige;
+}
+
+input, button, select {
+    width: 100px;
+    min-width: 100px;
 }
 
 textarea {
@@ -57,7 +63,47 @@ html, body {
     padding: 32px 50px;
 }
 
-#screen-table{
+#screen-table {
     background-color: darkgrey;
     border-color: darkgray;
+}
+
+#charpallette {
+    position: absolute;
+    top: 70px;
+    left: 755px;
+    background-color: beige;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+#toolbar {
+    position: absolute;
+    top: 5px;
+    left: 755px;
+    background-color: beige;
+    padding: 5px;
+    border-radius: 6px;
+    width: 355px;
+}
+
+#toolbarLower {
+    position: absolute;
+    top: 580px;
+    left: 755px;
+    background-color: beige;
+    padding: 5px;
+    border-radius: 6px;
+    width: 355px;
+}
+
+#preview {
+    border: 1px solid grey;
+    width: 30px;
+    height: 45px;
+    image-rendering: pixelated;
+}
+
+img {
+    image-rendering: pixelated;
 }
