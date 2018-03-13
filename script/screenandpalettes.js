@@ -53,8 +53,9 @@ function constructTable(YRes) {
     screen += "</TABLE>";
 
     getById("screen").innerHTML = screen;
-    constructColours();
     constructCharset();
+    constructColours();
+
     mouseDown = false;
 }
 
