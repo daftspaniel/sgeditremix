@@ -10,6 +10,12 @@
 const screensize = 512;
 const screenrows = 16;
 
+var mode = {
+    size: 512,
+    rows: 16,
+    columns: 32
+};
+
 var grid = false;
 var currentchar = '60';
 var charToValue = {};

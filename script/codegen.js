@@ -22,7 +22,7 @@ function constructFcb() {
     for (var j = 0; j < 16; j++) {
         var fcbline = String.fromCharCode(9) + "fcb" + String.fromCharCode(9);
         for (var i = j * 32; i < j * 32 + 32; i++) {
-            var temp = document.getElementById("pixel_" + i).innerHTML;
+            var temp = getById("pixel_" + i).innerHTML;
             if (temp === "&nbsp;") {
                 fcbval = noval
             }

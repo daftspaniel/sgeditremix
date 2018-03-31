@@ -35,6 +35,10 @@ function LoLight(id) {
 }
 
 function clearScreen(color) {
+    if (!window.confirm("Are you sure? This will clear the current drawing.")) {
+        return;
+    }
+
     if (color !== 0) {
         for (var i = 0; i < screensize; i++) {
             getById("pixel_" + i).innerHTML = "<IMG src='grafix/" + color + ".jpg' border=0 width=20 height=30>";

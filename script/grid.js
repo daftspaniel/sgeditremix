@@ -17,7 +17,7 @@ function showGrid(characterPalette, toolbar) {
     screenTable.height = 600;
 
     for (var i = 0; i < screensize; i++) {
-        cell = document.getElementById("pixel_" + i);
+        cell = getById("pixel_" + i);
         cell.style.border = '1px solid darkgrey';
         cell.style.maxWidth = '24px';
         cell.style.maxHeight = '34px';
@@ -29,7 +29,7 @@ function showGrid(characterPalette, toolbar) {
 function hideGrid(characterPalette, toolbar) {
     var cell;
     for (var i = 0; i < screensize; i++) {
-        cell = document.getElementById("pixel_" + i);
+        cell = getById("pixel_" + i);
         cell.style.border = '';
         cell.style.maxWidth = '20px';
         cell.style.maxHeight = '30px';
