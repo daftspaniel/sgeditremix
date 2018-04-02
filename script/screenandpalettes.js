@@ -23,9 +23,7 @@ function setupControlsAndScreen() {
     if (grid) showGrid(characterPalette, toolbar);
 
     currentchar = localStorage.currentchar ? window.localStorage.currentchar : '80';
-
-    var path = 'grafix/' + currentchar + '.jpg';
-    getById('preview').src = path;
+    setChar(currentchar);
 
     return i;
 }

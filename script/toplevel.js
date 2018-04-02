@@ -49,7 +49,6 @@ function keyUpEvent(evt) {
             if (current > 255) {
                 return;
             }
-            //currentchar = current.toString(16);
             setChar(current.toString(16));
             break;
         case 87:// W
@@ -57,7 +56,6 @@ function keyUpEvent(evt) {
             if (current < 0) {
                 current += 256;
             }
-            //currentchar = current.toString(16);
             setChar(current.toString(16));
             break;
         case 68:// D
