@@ -34,10 +34,10 @@ function constructTable(YRes) {
     var counter = 0;
     var screen = '<TABLE id="screen-table" width=640 height=480  draggable="false" cellpadding=0 cellspacing=0 onmouseleave="mouseDown=false">';
     var coors;
-    for (var j = 0; j < YRes; j++) {
+    for (var j = 0; j < mode.rows; j++) {
         screen += "<TR>";
-        for (var i = 0; i < 32; i++) {
-            coors = "(" + i + "," + j + ")  [" + (i + j * 32) + "]  " + ((i + j * 32) + 1024);
+        for (var i = 0; i < mode.columns; i++) {
+            coors = "(" + i + "," + j + ")  [" + (i + j * mode.columns) + "]  " + ((i + j * mode.columns) + 1024);
             screen += "<TD name='screencell' ";
             screen += "height=30 width=20 ";
             screen += "id='pixel_" + counter + "' ";
@@ -64,15 +64,11 @@ function constructColours() {
     var myHTML = "<TABLE height=480 cellpadding=1 cellspacing=0 style='border:none'>";
     for (var i = 128; i < 144; i++) {
         myHTML += "<TR>";
-        myHTML += "<TD style='cursor:pointer'><IMG onclick=\"setChar('" + i.toString(16) + "')\" title='chr(" + i + "/#$" + i.toString(16) + ")' src='grafix/" + i.toString(16) + ".jpg' border=1></TD>";
-        myHTML += "<TD style='cursor:pointer'><IMG onclick=\"setChar('" + (i + 16).toString(16) + "')\" title='chr(" + (i + 16) + "/#$" + (i + 16).toString(16) + ")' src='grafix/" + (i + 16).toString(16) + ".jpg' border=1></TD>";
-        myHTML += "<TD style='cursor:pointer'><IMG onclick=\"setChar('" + (i + 32).toString(16) + "')\" title='chr(" + (i + 32) + "/#$" + (i + 32).toString(16) + ")' src='grafix/" + (i + 32).toString(16) + ".jpg' border=1></TD>";
-        myHTML += "<TD style='cursor:pointer'><IMG onclick=\"setChar('" + (i + 48).toString(16) + "')\" title='chr(" + (i + 48) + "/#$" + (i + 48).toString(16) + ")' src='grafix/" + (i + 48).toString(16) + ".jpg' border=1></TD>";
 
-        myHTML += "<TD style='cursor:pointer'><IMG onclick=\"setChar('" + (i + 64).toString(16) + "')\" title='chr(" + (i + 64) + "/#$" + (i + 64).toString(16) + ")' src='grafix/" + (i + 64).toString(16) + ".jpg' border=1></TD>";
-        myHTML += "<TD style='cursor:pointer'><IMG onclick=\"setChar('" + (i + 80).toString(16) + "')\" title='chr(" + (i + 80) + "/#$" + (i + 80).toString(16) + ")' src='grafix/" + (i + 80).toString(16) + ".jpg' border=1></TD>";
-        myHTML += "<TD style='cursor:pointer'><IMG onclick=\"setChar('" + (i + 96).toString(16) + "')\" title='chr(" + (i + 96) + "/#$" + (i + 96).toString(16) + ")' src='grafix/" + (i + 96).toString(16) + ".jpg' border=1></TD>";
-        myHTML += "<TD style='cursor:pointer'><IMG onclick=\"setChar('" + (i + 112).toString(16) + "')\" title='chr(" + (i + 112) + "/#$" + (i + 112).toString(16) + ")' src='grafix/" + (i + 112).toString(16) + ".jpg' border=1></TD>";
+        for (var j = 0; j < 8; j++) {
+            var char = (i + (j * 16)).toString(16);
+            myHTML += "<TD style='cursor:pointer'><IMG id=\"" + char + "\" onclick=\"setChar('" + char + "')\" title='chr(" + i + "/#$" + char + ")' src='grafix/" + char + ".jpg' border=1></TD>";
+        }
         myHTML += "</TR>"
     }
     myHTML += "</TABLE>";
@@ -86,15 +82,10 @@ function constructCharset() {
 
     for (var i = 0; i < 16; i++) {
         myHTML += "<TR>";
-        myHTML += "<TD style='cursor:pointer'><IMG onclick=\"setChar('" + i.toString(16) + "')\" title='chr(" + i + "/#$" + i.toString(16) + ")' src='grafix/" + i.toString(16) + ".jpg' border=1></TD>";
-        myHTML += "<TD style='cursor:pointer'><IMG onclick=\"setChar('" + (i + 16).toString(16) + "')\" title='chr(" + (i + 16) + "/#$" + (i + 16).toString(16) + ")' src='grafix/" + (i + 16).toString(16) + ".jpg' border=1></TD>";
-        myHTML += "<TD style='cursor:pointer'><IMG onclick=\"setChar('" + (i + 32).toString(16) + "')\" title='chr(" + (i + 32) + "/#$" + (i + 32).toString(16) + ")' src='grafix/" + (i + 32).toString(16) + ".jpg' border=1></TD>";
-        myHTML += "<TD style='cursor:pointer'><IMG onclick=\"setChar('" + (i + 48).toString(16) + "')\" title='chr(" + (i + 48) + "/#$" + (i + 48).toString(16) + ")' src='grafix/" + (i + 48).toString(16) + ".jpg' border=1></TD>";
-
-        myHTML += "<TD style='cursor:pointer'><IMG onclick=\"setChar('" + (i + 64).toString(16) + "')\" title='chr(" + (i + 64) + "/#$" + (i + 64).toString(16) + ")' src='grafix/" + (i + 64).toString(16) + ".jpg' border=1></TD>";
-        myHTML += "<TD style='cursor:pointer'><IMG onclick=\"setChar('" + (i + 80).toString(16) + "')\" title='chr(" + (i + 80) + "/#$" + (i + 80).toString(16) + ")' src='grafix/" + (i + 80).toString(16) + ".jpg' border=1></TD>";
-        myHTML += "<TD style='cursor:pointer'><IMG onclick=\"setChar('" + (i + 96).toString(16) + "')\" title='chr(" + (i + 96) + "/#$" + (i + 96).toString(16) + ")' src='grafix/" + (i + 96).toString(16) + ".jpg' border=1></TD>";
-        myHTML += "<TD style='cursor:pointer'><IMG onclick=\"setChar('" + (i + 112).toString(16) + "')\" title='chr(" + (i + 112) + "/#$" + (i + 112).toString(16) + ")' src='grafix/" + (i + 112).toString(16) + ".jpg' border=1></TD>";
+        for (var j = 0; j < 8; j++) {
+            var char = (i + (j * 16)).toString(16);
+            myHTML += "<TD style='cursor:pointer'><IMG id=\"" + char + "\" onclick=\"setChar('" + char + "')\" title='chr(" + i + "/#$" + char + ")' src='grafix/" + char + ".jpg' border=1></TD>";
+        }
         myHTML += "</TR>"
     }
     myHTML += "</TABLE>";

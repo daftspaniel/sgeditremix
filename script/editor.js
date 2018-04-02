@@ -18,10 +18,28 @@ function dropImage(id) {
 }
 
 function setChar(charval) {
+    var currentSelection = getById(currentchar);
+    var newSelection = getById(charval);
     currentchar = charval;
-    var path = 'grafix/' + charval + '.jpg';
-    getById('preview').src = path;
     localStorage.currentchar = currentchar;
+
+    getById('preview').src = 'grafix/' + charval + '.jpg';
+
+    if (currentSelection) {
+        currentSelection.style.borderWidth = '1px';
+        currentSelection.style.borderStyle = 'solid';
+        currentSelection.style.borderColor = 'black';
+        currentSelection.style.width = '16px';
+        currentSelection.style.height = '24px';
+    }
+
+    if (newSelection) {
+        newSelection.style.borderWidth = '2px';
+        newSelection.style.borderStyle = 'dashed';
+        newSelection.style.borderColor = 'red';
+        newSelection.style.width = '12px';
+        newSelection.style.height = '20px';
+    }
 }
 
 function HiLight(id) {

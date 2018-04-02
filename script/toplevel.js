@@ -30,7 +30,7 @@ var characterPalette;
 var toolbar;
 
 function init() {
-    constructTable(screenrows);
+    constructTable();
     screenTable = getById('screen-table');
     characterPalette = getById('charpallette');
     toolbar = getById('toolbar');
@@ -49,16 +49,16 @@ function keyUpEvent(evt) {
             if (current > 255) {
                 return;
             }
-            currentchar = current.toString(16);
-            setChar(currentchar);
+            //currentchar = current.toString(16);
+            setChar(current.toString(16));
             break;
         case 87:// W
             current -= 1;
             if (current < 0) {
                 current += 256;
             }
-            currentchar = current.toString(16);
-            setChar(currentchar);
+            //currentchar = current.toString(16);
+            setChar(current.toString(16));
             break;
         case 68:// D
             current += 16;
