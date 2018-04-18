@@ -44,6 +44,37 @@ function downloadBasic() {
     downloadFile('screen.bas', sourceCode);
 }
 
+function roundTripData() {
+    getById("rtdata").style.display = "block";
+
+    let dataval, charval;
+    let csv = '';
+    for (let j = 0; j < mode.rows; j++) {
+        let dataline = '';
+        for (var i = j * mode.columns; i < j * mode.columns + mode.columns; i++) {
+            var temp = getById("pixel_" + i).innerHTML;
+            charval = temp.substr(temp.lastIndexOf(".jpg") - 2);
+            charval = charval.replace("/", "0");
+            dataval = charval.substr(0, charval.lastIndexOf(".jpg"));
+            dataval = parseInt(dataval, 16);
+            dataline += dataval + ","
+        }
+        csv += dataline + '\n';
+    }
+
+    getById("csvdata").value = csv;
+}
+
+function importData() {
+    let data = getById("csvdata").value.replace('\r\n', '').replace('\n', '').replace('\r', '');
+    data = data.split(',');
+
+    for (let i = 0; i < screensize; i++) {
+        getById('pixel_' + i).innerHTML = "<IMG src='grafix/" + parseInt(data[i]).toString(16) + ".jpg' border=0 width=20 height=30 draggable='false'>"
+    }
+
+}
+
 function constructData() {
     const noval = 60;	//hex
     var fullcode = '10 CLEAR2000:DIMT,A:CLS\r\n';

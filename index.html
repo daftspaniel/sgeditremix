@@ -1,12 +1,12 @@
 <html>
 <head>
-    <SCRIPT LANGUAGE="JavaScript" src="script/util.js?version2dot1"></SCRIPT>
-    <SCRIPT LANGUAGE="JavaScript" src="script/toplevel.js?version2dot1"></SCRIPT>
-    <SCRIPT LANGUAGE="JavaScript" src="script/codegen.js?version2dot1"></SCRIPT>
-    <SCRIPT LANGUAGE="JavaScript" src="script/grid.js?version2dot1"></SCRIPT>
-    <SCRIPT LANGUAGE="JavaScript" src="script/screenandpalettes.js?version2dot1"></SCRIPT>
-    <SCRIPT LANGUAGE="JavaScript" src="script/editor.js?version2dot1"></SCRIPT>
-    <link href="interface.css?version2dot1" rel="stylesheet" type="text/css"/>
+    <SCRIPT LANGUAGE="JavaScript" src="script/util.js?version2dot2"></SCRIPT>
+    <SCRIPT LANGUAGE="JavaScript" src="script/toplevel.js?version2dot2"></SCRIPT>
+    <SCRIPT LANGUAGE="JavaScript" src="script/codegen.js?version2dot2"></SCRIPT>
+    <SCRIPT LANGUAGE="JavaScript" src="script/grid.js?version2dot2"></SCRIPT>
+    <SCRIPT LANGUAGE="JavaScript" src="script/screenandpalettes.js?version2dot2"></SCRIPT>
+    <SCRIPT LANGUAGE="JavaScript" src="script/editor.js?version2dot2"></SCRIPT>
+    <link href="interface.css?version2dot2" rel="stylesheet" type="text/css"/>
     <!--//********************************************-->
     <!--// COCO II SG editor by Simon Jonassen 2014/16-->
     <!--// use and modify as you see fit...-->
@@ -59,7 +59,18 @@
 <div id="toolbarLower">
     <input type="button" value="Assembly" onclick="constructFcb()">
     <input type="button" value="Basic" onclick="constructData()">
+    <input type="button" value="Data" onclick="roundTripData()">
+    <br/>
     <button onclick="showById('about')">About</button>
+</div>
+
+<div id="rtdata" class="miniwindow">
+    <textarea cols="160" rows=30 id="csvdata">&nbsp;</textarea>
+    <button onclick="importData()">Import</button>&nbsp;&nbsp;
+    <button onclick="hideById('rtdata')">Export</button>&nbsp;
+    <button onclick="hideById('rtdata')">Download</button>&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button onclick="hideById('rtdata')">Close</button>
 </div>
 
 <div id="fcbdata" class="miniwindow">
