@@ -13,6 +13,11 @@ function downloadAssembly() {
     downloadFile('screen.asm', sourceCode);
 }
 
+function downloadData() {
+    var sourceCode = getById("csvdata").value;
+    downloadFile('screen.csv', sourceCode);
+}
+
 function constructFcb() {
     const noval = 60;	//hex
     getById("fcbs").value = "";
